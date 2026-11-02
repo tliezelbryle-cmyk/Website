@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Welcome | Green Personal Website</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --dark: #293B2D;
+    --forest: #3D5742;
+    --green: #657D60;
+    --sage: #A5B59A;
+    --light-sage: #DCE5D5;
+    --cream: #F5F1E7;
+    --white: #FFFCF5;
+    --text: #354436;
+    --muted: #74816D;
+    --border: #DCE3D5;
+    --shadow: rgba(49,65,47,0.15);
+    --glow: rgba(120,150,111,0.25);
+}
+
+[data-theme="dark"] {
+    --dark: #19271D;
+    --forest: #283E30;
+    --green: #82977A;
+    --sage: #82947A;
+    --light-sage: #354A39;
+    --cream: #202D23;
+    --white: #2A382D;
+    --text: #F0EFE5;
+    --muted: #C1CDB8;
+    --border: #465747;
+    --shadow: rgba(0,0,0,0.3);
+    --glow: rgba(120,150,111,0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 15% 20%, var(--light-sage), transparent 35%),
+        radial-gradient(circle at 85% 80%, var(--sage), transparent 30%),
+        var(--cream);
+    transition: 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND DECORATIONS */
+
+body::before,
+body::after {
+    content: "❧";
+    position: fixed;
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--sage);
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+body::before {
+    font-size: 180px;
+    top: 4%;
+    left: 5%;
+    transform: rotate(-25deg);
+}
+
+body::after {
+    font-size: 200px;
+    bottom: 1%;
+    right: 5%;
+    transform: rotate(155deg);
+}
+
+/* FORM CONTAINER */
+
+.form-container {
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    z-index: 2;
+    padding: 42px 38px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    box-shadow:
+        0 15px 40px var(--shadow),
+        0 0 35px var(--glow);
+    animation: appear 0.7s ease;
+}
+
+.form-container::before {
+    content: "";
+    position: absolute;
+    inset: 9px;
+    border: 1px solid var(--light-sage);
+    border-radius: 19px;
+    pointer-events: none;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HEADING */
+
+.form-container h2 {
+    position: relative;
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 43px;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 5px;
+}
+
+[data-theme="dark"] .form-container h2 {
+    color: var(--text);
+}
+
+.subtitle {
+    position: relative;
+    text-align: center;
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+.decoration {
+    text-align: center;
+    color: var(--sage);
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+
+/* FORM */
+
+form {
+    position: relative;
+    z-index: 1;
+}
+
+form label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    width: 100%;
+    padding: 14px 15px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--cream);
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+form input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--light-sage);
+}
+
+form input::placeholder {
+    color: var(--muted);
+    opacity: 0.8;
+}
+
+/* SHOW PASSWORD */
+
+.show-password {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: -5px 0 18px;
+}
+
+.show-password input {
+    accent-color: var(--forest);
+    cursor: pointer;
+}
+
+.show-password label {
+    margin: 0;
+    font-size: 11px;
+    color: var(--muted);
+    cursor: pointer;
+}
+
+/* PASSWORD MATCH */
+
+#passwordMatchMessage {
+    font-size: 11px;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* BUTTON */
+
+form button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--forest), var(--green));
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* ERROR MESSAGE */
+
+#errorMessage {
+    min-height: 18px;
+    text-align: center;
+    color: #C45D55;
+    font-size: 11px;
+    margin-top: 13px;
+}
+
+/* LOGIN / SIGN UP SWITCH */
+
+#toggleText {
+    position: relative;
+    text-align: center;
+    margin-top: 20px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+#toggleText a {
+    color: var(--forest);
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 3px;
+}
+
+[data-theme="dark"] #toggleText a {
+    color: var(--sage);
+}
+
+#toggleText a:hover {
+    text-decoration: underline;
+}
+
+/* THEME TOGGLE */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    z-index: 5;
+    padding: 11px 18px;
+    border: 1px solid var(--sage);
+    border-radius: 30px;
+    background: var(--forest);
+    color: var(--cream);
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 500px) {
+    body {
+        padding: 18px;
+    }
+
+    .form-container {
+        padding: 35px 25px;
+    }
+
+    .form-container h2 {
+        font-size: 37px;
+    }
+
+    body::before {
+        font-size: 120px;
+    }
+
+    body::after {
+        font-size: 130px;
+    }
+
+    .theme-toggle {
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="form-container">
+
+    <h2 id="formTitle">Welcome</h2>
+
+    <p class="subtitle">A LITTLE CORNER OF GREEN AND GROWTH</p>
+
+    <div class="decoration">✧ ♡ ✧</div>
+
+    <form id="authForm">
+
+        <label for="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            autocomplete="username"
+            required
+        >
+
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required
+        >
+
+        <div class="show-password" id="showPasswordContainer">
+            <input type="checkbox" id="showPassword">
+            <label for="showPassword">Show Password</label>
+        </div>
+
+        <div id="confirmPasswordGroup" hidden>
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your password"
+                autocomplete="new-password"
+            >
+        </div>
+
+        <p id="passwordMatchMessage" hidden></p>
+
+        <button type="submit" id="submitButton">LOGIN</button>
+
+        <p id="errorMessage" role="alert"></p>
+
+    </form>
+
+    <p id="toggleText">
+        Don't have an account?
+        <a href="#" id="toggleLink">Sign Up</a>
+    </p>
+
+</div>
+
+<button class="theme-toggle" id="themeToggle">
+    ☾ Dark Mode
+</button>
+
+<script>
+
+const root = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+
+// THEME TOGGLE
+
+function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+
+    localStorage.setItem('siteTheme', theme);
+
+    themeToggle.textContent =
+        theme === 'dark' ? '☀ Light Mode' : '☾ Dark Mode';
+}
+
+applyTheme(localStorage.getItem('siteTheme') || 'light');
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = root.getAttribute('data-theme');
+
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+});
+
+
+// ELEMENTS
+
+const form = document.getElementById('authForm');
+const formTitle = document.getElementById('formTitle');
+
+const username = document.getElementById('username');
+const password = document.getElementById('password');
+const confirmPassword = document.getElementById('confirmPassword');
+
+const confirmPasswordGroup =
+    document.getElementById('confirmPasswordGroup');
+
+const showPassword = document.getElementById('showPassword');
+
+const showPasswordContainer =
+    document.getElementById('showPasswordContainer');
+
+const errorMessage = document.getElementById('errorMessage');
+const matchMessage = document.getElementById('passwordMatchMessage');
+
+const submitButton = document.getElementById('submitButton');
+const toggleText = document.getElementById('toggleText');
+
+let isLogin = true;
+
+
+// SWITCH LOGIN AND SIGN UP
+
+function switchMode() {
+
+    isLogin = !isLogin;
+
+    form.reset();
+
+    errorMessage.textContent = '';
+    matchMessage.textContent = '';
+    matchMessage.hidden = true;
+
+    password.type = 'password';
+    confirmPassword.type = 'password';
+
+    showPassword.checked = false;
+
+    formTitle.textContent = isLogin
+        ? 'Welcome'
+        : 'Create Account';
+
+    submitButton.textContent = isLogin
+        ? 'LOGIN'
+        : 'SIGN UP';
+
+    confirmPasswordGroup.hidden = isLogin;
+    confirmPassword.required = !isLogin;
+
+    showPasswordContainer.hidden = !isLogin;
+
+    password.autocomplete = isLogin
+        ? 'current-password'
+        : 'new-password';
+
+    toggleText.innerHTML = isLogin
+        ? `Don't have an account? <a href="#" id="toggleLink">Sign Up</a>`
+        : `Already have an account? <a href="#" id="toggleLink">Login</a>`;
+
+    document.querySelector('.subtitle').textContent = isLogin
+        ? 'A LITTLE CORNER OF GREEN AND GROWTH'
+        : 'START YOUR OWN LITTLE JOURNEY';
+}
+
+
+// TOGGLE LOGIN AND SIGN UP
+
+toggleText.addEventListener('click', event => {
+
+    if (event.target.id === 'toggleLink') {
+        event.preventDefault();
+        switchMode();
+    }
+
+});
+
+
+// SHOW PASSWORD
+
+showPassword.addEventListener('change', () => {
+
+    password.type = showPassword.checked
+        ? 'text'
+        : 'password';
+
+});
+
+
+// PASSWORD MATCH CHECK
+
+function checkPasswordMatch() {
+
+    if (isLogin || !confirmPassword.value) {
+        matchMessage.hidden = true;
+        return;
+    }
+
+    matchMessage.hidden = false;
+
+    if (password.value === confirmPassword.value) {
+
+        matchMessage.textContent = 'Passwords match ✓';
+        matchMessage.style.color = '#638B53';
+
+    } else {
+
+        matchMessage.textContent = 'Passwords do not match';
+        matchMessage.style.color = '#D45A5A';
+
+    }
+
+}
+
+password.addEventListener('input', checkPasswordMatch);
+confirmPassword.addEventListener('input', checkPasswordMatch);
+
+
+// LOGIN AND SIGN UP SUBMISSION
+
+form.addEventListener('submit', event => {
+
+    event.preventDefault();
+
+    errorMessage.textContent = '';
+
+    const user = username.value.trim();
+    const pass = password.value;
+
+    if (!user || !pass) {
+
+        errorMessage.textContent =
+            'Please complete all required fields.';
+
+        return;
+    }
+
+
+    // LOGIN
+
+    if (isLogin) {
+
+        const savedUser = localStorage.getItem('username');
+        const savedPass = localStorage.getItem('password');
+
+        if (user === savedUser && pass === savedPass) {
+
+            localStorage.setItem('isLoggedIn', 'true');
+
+            window.location.href = 'index.html';
+
+        } else {
+
+            errorMessage.textContent =
+                'Invalid username or password. Please try again.';
+
+        }
+
+        return;
+    }
+
+
+    // SIGN UP
+
+    if (pass.length < 6) {
+
+        errorMessage.textContent =
+            'Password must contain at least 6 characters.';
+
+        return;
+    }
+
+    if (pass !== confirmPassword.value) {
+
+        errorMessage.textContent =
+            'Passwords do not match.';
+
+        return;
+    }
+
+    const existingUser = localStorage.getItem('username');
+
+    if (existingUser && existingUser === user) {
+
+        errorMessage.textContent =
+            'Username already exists. Please log in.';
+
+        return;
+    }
+
+
+    // SAVE DEMO ACCOUNT
+
+    localStorage.setItem('username', user);
+    localStorage.setItem('password', pass);
+
+    alert('Account created successfully! You can now log in.');
+
+    // Switch back to Login mode
+
+    isLogin = false;
+    switchMode();
+
+});
+
+</script>
+
+</body>
+</html>

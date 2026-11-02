@@ -1,0 +1,801 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skills | My Green Website</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =================================
+   WARM SAGE GREEN THEME
+================================= */
+
+:root {
+    --dark: #293B2D;
+    --forest: #3D5742;
+    --green: #657D60;
+    --sage: #A5B59A;
+    --light-sage: #DCE5D5;
+    --cream: #F5F1E7;
+    --white: #FFFCF5;
+    --text: #354436;
+    --muted: #657461;
+    --shadow: rgba(49,65,47,0.12);
+
+    --heading-color: #293B2D;
+    --body-color: #354436;
+    --secondary-color: #657461;
+    --nav-text: #F5F1E7;
+    --card-text: #354436;
+    --button-text: #293B2D;
+    --footer-text: #F5F1E7;
+    --note-text: #293B2D;
+}
+
+/* =================================
+   DARK MODE COLORS
+================================= */
+
+[data-theme="dark"] {
+    --dark: #19271D;
+    --forest: #283E30;
+    --green: #A8C49C;
+    --sage: #829B7A;
+    --light-sage: #354A39;
+    --cream: #202D23;
+    --white: #2A382D;
+    --text: #F0F2E9;
+    --muted: #C6D2C0;
+    --shadow: rgba(0,0,0,0.30);
+
+    --heading-color: #F5F3E9;
+    --body-color: #E8EEE3;
+    --secondary-color: #C6D2C0;
+    --nav-text: #F5F3E9;
+    --card-text: #F0F2E9;
+    --button-text: #19271D;
+    --footer-text: #F5F3E9;
+    --note-text: #F0F2E9;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--body-color);
+    font-family: 'Poppins', sans-serif;
+    transition: background .3s, color .3s;
+}
+
+/* =================================
+   HEADER
+================================= */
+
+header {
+    background: var(--dark);
+    color: var(--nav-text);
+    padding: 18px 20px;
+    text-align: center;
+    border-bottom: 3px solid var(--sage);
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--nav-text);
+}
+
+/* =================================
+   NAVIGATION
+================================= */
+
+nav {
+    background: var(--dark);
+    padding: 10px 15px 16px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    color: var(--nav-text);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .4px;
+    padding: 10px 17px;
+    border: 1px solid rgba(220,229,213,.22);
+    border-radius: 25px;
+    transition: .3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    background: var(--cream);
+    color: var(--button-text);
+    box-shadow: 0 3px 12px rgba(255,255,255,.12);
+}
+
+/* DROPDOWN */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    min-width: 205px;
+    background: var(--white);
+    border: 1px solid var(--light-sage);
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--shadow);
+    overflow: hidden;
+    z-index: 100;
+}
+
+.dropdown-content a {
+    color: var(--card-text);
+    border: none;
+    border-radius: 0;
+    padding: 12px 15px;
+}
+
+.dropdown-content a:hover {
+    background: var(--light-sage);
+    color: var(--heading-color);
+    box-shadow: none;
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+/* =================================
+   MAIN SECTION
+================================= */
+
+#drop {
+    max-width: 1100px;
+    margin: auto;
+    padding: 55px 25px 70px;
+    text-align: center;
+    animation: fadeIn .8s ease;
+}
+
+.section-label {
+    color: var(--green);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+#drop h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.title-decoration {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin: 10px auto 15px;
+    color: var(--green);
+    font-size: 20px;
+}
+
+.title-decoration::before,
+.title-decoration::after {
+    content: "";
+    width: 65px;
+    height: 1px;
+    background: var(--sage);
+}
+
+#drop > p {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: var(--secondary-color);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* =================================
+   SKILLS CONTAINER
+================================= */
+
+#skills {
+    max-width: 850px;
+    margin: auto;
+    background: var(--white);
+    border: 1px solid var(--light-sage);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+/* =================================
+   SKILL TABS
+================================= */
+
+.tab {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tablinks {
+    border: 1px solid var(--sage);
+    background: var(--cream);
+    color: var(--heading-color);
+    padding: 11px 17px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.tablinks:hover {
+    background: var(--light-sage);
+    color: var(--heading-color);
+    transform: translateY(-2px);
+}
+
+.tablinks.active {
+    background: var(--forest);
+    color: #FFFFFF;
+    border-color: var(--forest);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* =================================
+   TAB CONTENT
+================================= */
+
+.tabcontent {
+    display: none;
+    background: var(--cream);
+    border: 1px solid var(--light-sage);
+    border-radius: 17px;
+    padding: 30px;
+    text-align: left;
+    animation: contentReveal .45s ease;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+.skill-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.skill-icon {
+    width: 53px;
+    height: 53px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--light-sage);
+    border-radius: 15px;
+    font-size: 25px;
+}
+
+.tabcontent h3 {
+    color: var(--heading-color);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.skill-subtitle {
+    font-size: 11px;
+    color: var(--secondary-color);
+    margin: 3px 0 0;
+}
+
+.tabcontent ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tabcontent li {
+    position: relative;
+    padding: 12px 12px 12px 30px;
+    margin-bottom: 9px;
+    color: var(--card-text);
+    font-size: 13px;
+    line-height: 1.8;
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid var(--light-sage);
+}
+
+.tabcontent li::before {
+    content: "✿";
+    position: absolute;
+    left: 11px;
+    top: 12px;
+    color: var(--green);
+    font-size: 13px;
+}
+
+/* =================================
+   BOTTOM DECORATION
+================================= */
+
+.skills-note {
+    max-width: 700px;
+    margin: 30px auto 0;
+    padding: 20px;
+    border-radius: 15px;
+    background: var(--light-sage);
+    color: var(--note-text);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* =================================
+   FOOTER
+================================= */
+
+footer {
+    background: var(--dark);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 22px 15px;
+    border-top: 3px solid var(--sage);
+}
+
+footer p {
+    color: var(--footer-text);
+    font-size: 12px;
+    margin: 0;
+    letter-spacing: .4px;
+}
+
+.footer-divider {
+    height: 4px;
+    background: var(--sage);
+}
+
+/* =================================
+   DARK MODE BUTTON
+================================= */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background: var(--forest);
+    color: #FFFFFF;
+    border: 1px solid var(--sage);
+    padding: 11px 17px;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: .3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--green);
+    color: #19271D;
+    transform: translateY(-3px);
+}
+
+/* =================================
+   PAGE BORDER
+================================= */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    border: 2px solid rgba(165,181,154,.45);
+    box-shadow: inset 0 0 18px rgba(165,181,154,.15);
+}
+
+/* =================================
+   ANIMATIONS
+================================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contentReveal {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =================================
+   RESPONSIVE DESIGN
+================================= */
+
+@media(max-width: 700px) {
+
+    header h1 {
+        font-size: 23px;
+    }
+
+    nav ul {
+        gap: 5px;
+    }
+
+    nav a {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    #drop {
+        padding: 40px 15px 55px;
+    }
+
+    #drop h2 {
+        font-size: 38px;
+    }
+
+    #drop > p {
+        font-size: 12px;
+    }
+
+    #skills {
+        padding: 17px;
+    }
+
+    .tab {
+        gap: 8px;
+    }
+
+    .tablinks {
+        padding: 10px 12px;
+        font-size: 10px;
+    }
+
+    .tabcontent {
+        padding: 20px 15px;
+    }
+
+    .tabcontent h3 {
+        font-size: 25px;
+    }
+
+    .tabcontent li {
+        font-size: 12px;
+    }
+
+    .skills-note {
+        font-size: 18px;
+    }
+}
+
+@media(max-width: 400px) {
+
+    #drop h2 {
+        font-size: 33px;
+    }
+
+    .skill-heading {
+        gap: 10px;
+    }
+
+    .skill-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 21px;
+    }
+
+    .theme-toggle {
+        bottom: 12px;
+        right: 12px;
+        padding: 9px 13px;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to My Personal Website ♡</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT ▾</a>
+            <div class="dropdown-content">
+                <a href="skills.html" class="active">Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+        </li>
+
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+
+        <li>
+            <a href="#" class="logout-button" onclick="confirmLogout(event)">LOG OUT ↪</a>
+        </li>
+    </ul>
+</nav>
+
+<section id="drop">
+
+    <div class="section-label">My Journey of Growth</div>
+
+    <h2>Skills I'm Developing</h2>
+
+    <div class="title-decoration">✧ ♡ ✧</div>
+
+    <p>
+        As a student, I'm actively developing different skills
+        that reflect my interests in technology, creativity,
+        communication, and personal growth.
+    </p>
+
+    <section id="skills">
+
+        <div class="tab">
+
+            <button class="tablinks active" onclick="openTab(event, 'IT')">
+                💻 Information Technology
+            </button>
+
+            <button class="tablinks" onclick="openTab(event, 'GraphicDesign')">
+                🎨 Graphic Design
+            </button>
+
+            <button class="tablinks" onclick="openTab(event, 'PublicSpeaking')">
+                🎤 Public Speaking
+            </button>
+
+            <button class="tablinks" onclick="openTab(event, 'ProblemSolving')">
+                🌿 Problem Solving
+            </button>
+
+        </div>
+
+        <!-- INFORMATION TECHNOLOGY -->
+
+        <div id="IT" class="tabcontent active">
+
+            <div class="skill-heading">
+                <div class="skill-icon">💻</div>
+                <div>
+                    <h3>Information Technology</h3>
+                    <p class="skill-subtitle">Learning, exploring, and creating through technology.</p>
+                </div>
+            </div>
+
+            <ul>
+                <li>Learning front-end web development using HTML, CSS, and JavaScript.</li>
+                <li>Practicing responsive design for different devices.</li>
+                <li>Creating modern and accessible web interfaces.</li>
+            </ul>
+
+        </div>
+
+        <!-- GRAPHIC DESIGN -->
+
+        <div id="GraphicDesign" class="tabcontent">
+
+            <div class="skill-heading">
+                <div class="skill-icon">🎨</div>
+                <div>
+                    <h3>Graphic Design</h3>
+                    <p class="skill-subtitle">Expressing creativity through visual design.</p>
+                </div>
+            </div>
+
+            <ul>
+                <li>Exploring visual design using creative tools.</li>
+                <li>Building skills in branding, layout, and digital illustration.</li>
+                <li>Combining design with web development.</li>
+            </ul>
+
+        </div>
+
+        <!-- PUBLIC SPEAKING -->
+
+        <div id="PublicSpeaking" class="tabcontent">
+
+            <div class="skill-heading">
+                <div class="skill-icon">🎤</div>
+                <div>
+                    <h3>Public Speaking</h3>
+                    <p class="skill-subtitle">Building confidence through communication.</p>
+                </div>
+            </div>
+
+            <ul>
+                <li>Developing communication skills through presentations.</li>
+                <li>Practicing storytelling to engage an audience.</li>
+                <li>Learning to share ideas clearly and confidently.</li>
+            </ul>
+
+        </div>
+
+        <!-- PROBLEM SOLVING -->
+
+        <div id="ProblemSolving" class="tabcontent">
+
+            <div class="skill-heading">
+                <div class="skill-icon">🌿</div>
+                <div>
+                    <h3>Problem Solving and Critical Thinking</h3>
+                    <p class="skill-subtitle">Growing through challenges and new experiences.</p>
+                </div>
+            </div>
+
+            <ul>
+                <li>Enhancing analytical skills through coding challenges.</li>
+                <li>Finding efficient solutions to programming problems.</li>
+                <li>Building a structured approach to solving challenges.</li>
+            </ul>
+
+        </div>
+
+    </section>
+
+    <div class="skills-note">
+        "Every skill begins with the courage to learn something new." ♡
+    </div>
+
+</section>
+
+<footer>
+    <p>&copy; 2026 My Personal Website. All rights reserved.</p>
+</footer>
+
+<div class="footer-divider"></div>
+
+<button class="theme-toggle" onclick="toggleTheme()">
+    ☾ Dark Mode
+</button>
+
+<script>
+
+/* =================================
+   THEME FUNCTION
+================================= */
+
+const root = document.documentElement;
+const themeButton = document.querySelector('.theme-toggle');
+
+function applyTheme(theme) {
+
+    root.setAttribute('data-theme', theme);
+
+    localStorage.setItem('siteTheme', theme);
+
+    themeButton.textContent =
+        theme === 'dark' ? '☀ Light Mode' : '☾ Dark Mode';
+}
+
+function toggleTheme() {
+
+    const currentTheme = root.getAttribute('data-theme');
+
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+}
+
+applyTheme(localStorage.getItem('siteTheme') || 'light');
+
+
+/* =================================
+   SKILLS TAB FUNCTION
+================================= */
+
+function openTab(event, tabName) {
+
+    document.querySelectorAll('.tabcontent').forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    document.querySelectorAll('.tablinks').forEach(button => {
+        button.classList.remove('active');
+    });
+
+    document.getElementById(tabName).classList.add('active');
+
+    event.currentTarget.classList.add('active');
+}
+
+
+/* =================================
+   LOGOUT FUNCTION
+================================= */
+
+function confirmLogout(event) {
+
+    event.preventDefault();
+
+    if (confirm('Are you sure you want to log out?')) {
+
+        localStorage.removeItem('isLoggedIn');
+
+        window.location.href = 'login.html';
+    }
+}
+
+</script>
+
+</body>
+</html>

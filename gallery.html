@@ -1,0 +1,800 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | My Green Personal Website</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    color-scheme: light;
+
+    --background: #F5F8F1;
+    --surface: #FFFFFF;
+    --surface-soft: #E8F0E5;
+    --heading: #293B2D;
+    --text: #354536;
+    --muted: #596B58;
+    --nav-bg: #34483B;
+    --nav-text: #FFFFFF;
+    --dropdown-bg: #FFFFFF;
+    --dropdown-text: #293B2D;
+    --accent: #78966F;
+    --accent-hover: #536B58;
+    --border: #D7E4D3;
+    --footer-bg: #293B2D;
+    --footer-text: #FFFFFF;
+    --shadow: 0 8px 25px rgba(40, 65, 45, 0.10);
+}
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+
+    --background: #17241C;
+    --surface: #26372D;
+    --surface-soft: #304437;
+    --heading: #FFFFFF;
+    --text: #F2F6EF;
+    --muted: #D5E1D1;
+    --nav-bg: #101A14;
+    --nav-text: #FFFFFF;
+    --dropdown-bg: #26372D;
+    --dropdown-text: #FFFFFF;
+    --accent: #91B985;
+    --accent-hover: #B5D6A9;
+    --border: #526B57;
+    --footer-bg: #101A14;
+    --footer-text: #FFFFFF;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* HEADER */
+
+header {
+    text-align: center;
+    padding: 17px 15px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+    font-weight: 700;
+    color: var(--heading);
+}
+
+/* NAVIGATION */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--nav-bg);
+    padding: 12px 15px;
+    box-shadow: var(--shadow);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    list-style: none;
+}
+
+nav a,
+.dropdown-btn {
+    display: block;
+    padding: 9px 15px;
+    border: none;
+    border-radius: 25px;
+    background: transparent;
+    color: var(--nav-text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav a:hover,
+.dropdown-btn:hover,
+nav a.active {
+    background: var(--surface-soft);
+    color: var(--heading);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 175px;
+    padding: 8px;
+    margin-top: 8px;
+    background: var(--dropdown-bg);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    box-shadow: var(--shadow);
+}
+
+.dropdown-content a {
+    color: var(--dropdown-text);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+.dropdown-content a:hover {
+    background: var(--surface-soft);
+    color: var(--heading);
+}
+
+.dropdown.open .dropdown-content {
+    display: block;
+}
+
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content,
+    .dropdown:focus-within .dropdown-content {
+        display: block;
+    }
+}
+
+/* THEME BUTTON */
+
+.theme-button {
+    position: fixed;
+    right: 18px;
+    bottom: 20px;
+    z-index: 1500;
+    padding: 12px 17px;
+    border: 1px solid var(--border);
+    border-radius: 30px;
+    background: var(--accent);
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.theme-button:hover {
+    background: var(--accent-hover);
+    color: #FFFFFF;
+    transform: translateY(-3px);
+}
+
+/* MAIN GALLERY */
+
+main {
+    width: min(1100px, 92%);
+    margin: 55px auto;
+}
+
+.section-label {
+    text-align: center;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.gallery-title {
+    margin-top: 8px;
+    text-align: center;
+    color: var(--heading);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 6vw, 55px);
+    font-weight: 700;
+}
+
+.decoration {
+    margin: 8px 0 13px;
+    text-align: center;
+    color: var(--accent);
+    font-size: 20px;
+}
+
+.intro {
+    max-width: 650px;
+    margin: 0 auto 40px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* GALLERY GRID */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.gallery-card {
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 13px 30px rgba(40, 65, 45, 0.16);
+}
+
+.gallery-card img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.04);
+}
+
+.card-caption {
+    padding: 18px;
+    text-align: center;
+}
+
+.card-caption h3 {
+    margin-bottom: 7px;
+    color: var(--heading);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.card-caption p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* QUOTE */
+
+.quote-section {
+    margin-top: 55px;
+    padding: 35px 25px;
+    text-align: center;
+    background: var(--surface-soft);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+}
+
+.quote-section p {
+    color: var(--heading);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+}
+
+.quote-section span {
+    display: block;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* FOOTER */
+
+footer {
+    margin-top: 60px;
+    padding: 22px 15px;
+    text-align: center;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 12px;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.lightbox.show {
+    display: flex;
+}
+
+.lightbox-content {
+    position: relative;
+    width: min(850px, 100%);
+    text-align: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 75vh;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.lightbox-caption {
+    margin-top: 12px;
+    color: #FFFFFF;
+    font-size: 14px;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    border: none;
+    background: rgba(255, 255, 255, 0.18);
+    color: #FFFFFF;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 43px;
+    height: 43px;
+    font-size: 24px;
+}
+
+.lightbox-close {
+    top: -20px;
+    right: 0;
+}
+
+.lightbox-prev {
+    left: -55px;
+    top: 45%;
+}
+
+.lightbox-next {
+    right: -55px;
+    top: 45%;
+}
+
+.lightbox-counter {
+    margin-top: 8px;
+    color: #FFFFFF;
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 29px;
+    }
+
+    nav ul {
+        gap: 4px;
+    }
+
+    nav a,
+    .dropdown-btn {
+        padding: 8px 10px;
+        font-size: 11px;
+    }
+
+    main {
+        margin: 40px auto;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .gallery-card img {
+        height: 210px;
+    }
+
+    .lightbox-prev {
+        left: 5px;
+    }
+
+    .lightbox-next {
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-card img {
+        height: 260px;
+    }
+
+    .intro {
+        font-size: 13px;
+    }
+
+    .theme-button {
+        right: 12px;
+        bottom: 12px;
+        padding: 10px 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to My Personal Website ♡</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+
+        <li class="dropdown" id="aboutDropdown">
+            <button class="dropdown-btn"
+                    type="button"
+                    aria-expanded="false"
+                    onclick="toggleAbout(event)">
+                ABOUT ▾
+            </button>
+
+            <div class="dropdown-content">
+                <a href="skills.html">My Skills</a>
+                <a href="goals.html">My Goals</a>
+                <a href="funfacts.html">Fun Facts</a>
+            </div>
+        </li>
+
+        <li><a href="gallery.html" class="active">GALLERY</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="login.html" onclick="return confirmLogout(event)">LOG OUT</a></li>
+    </ul>
+</nav>
+
+<button class="theme-button" id="themeToggle" type="button" onclick="toggleTheme()">
+    ☾ Dark Mode
+</button>
+
+<main>
+
+    <p class="section-label">My Memories and Inspirations</p>
+
+    <h2 class="gallery-title">My Little Gallery</h2>
+
+    <div class="decoration">✧ ♡ ✧</div>
+
+    <p class="intro">
+        A collection of the little things that inspire me,
+        bring me happiness, and remind me to appreciate
+        the beauty of everyday life.
+    </p>
+
+    <section class="gallery-grid">
+
+        <article class="gallery-card">
+            <img src="mami.png"
+                 alt="Nature and calm moment"
+                 onclick="openLightbox(0)">
+            <div class="card-caption">
+                <h3>Nature and Calm Moments</h3>
+                <p>Finding peace in the beauty of nature and appreciating simple moments.</p>
+            </div>
+        </article>
+
+        <article class="gallery-card">
+            <img src="frend.jpeg"
+                 alt="A moment with my mentors"
+                 onclick="openLightbox(1)">
+            <div class="card-caption">
+                <h3>A moment with my mentors</h3>
+                <p>Little moments, genuine smiles, and memories with the people who guide and inspire me. Forever grateful for these mentors. 🌿</p>
+            </div>
+        </article>
+
+        <article class="gallery-card">
+            <img src="eh.jpeg"
+                 alt="A Moment of Achievement"
+                 onclick="openLightbox(2)">
+            <div class="card-caption">
+                <h3>A Moment of Achievement</h3>
+                <p>A proud moment, made more meaningful with the guidance and support of a mentor. </p>
+            </div>
+        </article>
+
+        <article class="gallery-card">
+            <img src="hapi.jpeg"
+                 alt="Together, We Create Memories"
+                 onclick="openLightbox(3)">
+            <div class="card-caption">
+                <h3>Together, We Create Memories</h3>
+                <p>Different faces, one beautiful bond, and countless memories to cherish.</p>
+            </div>
+        </article>
+
+        <article class="gallery-card">
+            <img src="pas.jpg"
+                 alt="A Chapter from My Childhood"
+                 onclick="openLightbox(4)">
+            <div class="card-caption">
+                <h3>A Chapter from My Childhood</h3>
+                <p>A beautiful memory from Grade 6, when life was simpler and dreams were just beginning. Now in my second year of college, I look back with gratitude at how far I've come. Some memories may fade, but the moments that shaped us will always stay. </p>
+            </div>
+        </article>
+
+    </section>
+
+    <section class="quote-section">
+        <p>"Growing, learning, and creating one day at a time."</p>
+        <span>♡ A little corner of green and growth ♡</span>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 My Personal Website | Made with ♡ and a little touch of green.</p>
+</footer>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="closeOutside(event)">
+    <div class="lightbox-content">
+
+        <button class="lightbox-close"
+                type="button"
+                onclick="closeLightbox()"
+                aria-label="Close">
+            ×
+        </button>
+
+        <button class="lightbox-prev"
+                type="button"
+                onclick="changeImage(-1)"
+                aria-label="Previous image">
+            ‹
+        </button>
+
+        <img class="lightbox-image"
+             id="lightboxImage"
+             src=""
+             alt="Selected gallery image">
+
+        <button class="lightbox-next"
+                type="button"
+                onclick="changeImage(1)"
+                aria-label="Next image">
+            ›
+        </button>
+
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+        <p class="lightbox-counter" id="lightboxCounter"></p>
+
+    </div>
+</div>
+
+<script>
+/* THEME SYSTEM */
+
+const root = document.documentElement;
+const themeButton = document.getElementById("themeToggle");
+
+function applyTheme(theme) {
+    root.setAttribute("data-theme", theme);
+
+    themeButton.textContent =
+        theme === "dark" ? "☀ Light Mode" : "☾ Dark Mode";
+}
+
+function toggleTheme() {
+    const currentTheme = root.getAttribute("data-theme");
+    const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+    applyTheme(newTheme);
+
+    try {
+        localStorage.setItem("siteTheme", newTheme);
+    } catch (error) {
+        console.warn("Theme preference could not be saved.");
+    }
+}
+
+function loadTheme() {
+    let savedTheme = "light";
+
+    try {
+        savedTheme = localStorage.getItem("siteTheme") || "light";
+    } catch (error) {
+        console.warn("Theme preference could not be loaded.");
+    }
+
+    applyTheme(savedTheme === "dark" ? "dark" : "light");
+}
+
+loadTheme();
+
+/* ABOUT DROPDOWN */
+
+function toggleAbout(event) {
+    event.stopPropagation();
+
+    const dropdown = document.getElementById("aboutDropdown");
+    const button = dropdown.querySelector(".dropdown-btn");
+
+    dropdown.classList.toggle("open");
+
+    button.setAttribute(
+        "aria-expanded",
+        dropdown.classList.contains("open")
+    );
+}
+
+document.addEventListener("click", function(event) {
+    const dropdown = document.getElementById("aboutDropdown");
+
+    if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove("open");
+        dropdown.querySelector(".dropdown-btn")
+            .setAttribute("aria-expanded", "false");
+    }
+});
+
+/* LOG OUT */
+
+function confirmLogout(event) {
+    const confirmed = confirm("Are you sure you want to log out?");
+
+    if (!confirmed) {
+        event.preventDefault();
+        return false;
+    }
+
+    try {
+        localStorage.removeItem("isLoggedIn");
+    } catch (error) {
+        console.warn("Could not clear login status.");
+    }
+
+    return true;
+}
+
+/* LIGHTBOX */
+
+const galleryImages = [
+    {
+        src: "mami.png",
+        caption: "Nature and Calm Moments"
+    },
+    {
+        src: "frend.jpeg",
+        caption: "A moment with my mentors"
+    },
+    {
+        src: "eh.jpeg",
+        caption: "A Moment of Achievement"
+    },
+    {
+        src: "hapi.jpeg",
+        caption: "Together, We Create Memories "
+    },
+    {
+        src: "pas.jpg",
+        caption: "A Chapter from My Childhood "
+    }
+];
+
+let currentImage = 0;
+
+function openLightbox(index) {
+    currentImage = index;
+    updateLightbox();
+
+    document.getElementById("lightbox").classList.add("show");
+    document.body.style.overflow = "hidden";
+}
+
+function updateLightbox() {
+    const image = galleryImages[currentImage];
+
+    document.getElementById("lightboxImage").src = image.src;
+    document.getElementById("lightboxCaption").textContent = image.caption;
+
+    document.getElementById("lightboxCounter").textContent =
+        (currentImage + 1) + " / " + galleryImages.length;
+}
+
+function changeImage(direction) {
+    currentImage += direction;
+
+    if (currentImage >= galleryImages.length) {
+        currentImage = 0;
+    }
+
+    if (currentImage < 0) {
+        currentImage = galleryImages.length - 1;
+    }
+
+    updateLightbox();
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").classList.remove("show");
+    document.body.style.overflow = "";
+}
+
+function closeOutside(event) {
+    if (event.target.id === "lightbox") {
+        closeLightbox();
+    }
+}
+
+document.addEventListener("keydown", function(event) {
+    const lightbox = document.getElementById("lightbox");
+
+    if (!lightbox.classList.contains("show")) return;
+
+    if (event.key === "Escape") {
+        closeLightbox();
+    }
+
+    if (event.key === "ArrowRight") {
+        changeImage(1);
+    }
+
+    if (event.key === "ArrowLeft") {
+        changeImage(-1);
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,758 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | My Green Website</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --dark: #293B2D;
+    --forest: #3D5742;
+    --green: #657D60;
+    --sage: #A5B59A;
+    --light-sage: #DCE5D5;
+    --cream: #F5F1E7;
+    --white: #FFFCF5;
+
+    --text: #354436;
+    --muted: #596B59;
+    --border: #DCE3D5;
+    --shadow: rgba(49,65,47,0.12);
+
+    /* LIGHT MODE TEXT COLORS */
+    --heading-text: #293B2D;
+    --nav-text: #293B2D;
+    --detail-text: #354436;
+    --secondary-text: #596B59;
+    --quote-text: #293B2D;
+    --input-text: #293B2D;
+    --placeholder-text: #657765;
+    --button-text: #FFFFFF;
+    --footer-text: #FFFFFF;
+}
+
+[data-theme="dark"] {
+    --dark: #19271D;
+    --forest: #283E30;
+    --green: #82977A;
+    --sage: #82947A;
+    --light-sage: #354A39;
+    --cream: #202D23;
+    --white: #2A382D;
+
+    --text: #F0EFE5;
+    --muted: #D0DCCB;
+    --border: #526653;
+    --shadow: rgba(0,0,0,0.25);
+
+    /* DARK MODE TEXT COLORS */
+    --heading-text: #FFFFFF;
+    --nav-text: #F5F7EF;
+    --detail-text: #F5F7EF;
+    --secondary-text: #D5E0D0;
+    --quote-text: #FFFFFF;
+    --input-text: #FFFFFF;
+    --placeholder-text: #D5E0D0;
+    --button-text: #FFFFFF;
+    --footer-text: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    transition: 0.3s ease;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, var(--dark), var(--forest));
+    text-align: center;
+    padding: 18px 20px;
+    border-bottom: 3px solid var(--sage);
+}
+
+header h1 {
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 29px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 15px 15px;
+    position: relative;
+    z-index: 10;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    background: var(--white);
+    padding: 9px 13px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    box-shadow: 0 5px 18px var(--shadow);
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color: var(--nav-text);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 10px 15px;
+    border-radius: 30px;
+    transition: 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: var(--forest);
+    color: #FFFFFF;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 200px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 8px;
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+.dropdown-content a {
+    color: var(--detail-text);
+    border-radius: 8px;
+    letter-spacing: 0;
+    font-size: 12px;
+    padding: 11px;
+}
+
+.dropdown-content a:hover {
+    background: var(--light-sage);
+    color: var(--heading-text);
+}
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+.logout-button {
+    background: var(--light-sage);
+}
+
+/* CONTACT SECTION */
+
+#contact {
+    padding: 45px 20px 70px;
+    min-height: 70vh;
+}
+
+.contact-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-label {
+    color: var(--secondary-text);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    opacity: 1;
+}
+
+.contact-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--heading-text);
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.1;
+    opacity: 1;
+    visibility: visible;
+}
+
+.decorative {
+    color: var(--sage);
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+.contact-heading p {
+    color: var(--secondary-text);
+    font-size: 13px;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+    opacity: 1;
+}
+
+/* CONTACT CONTENT */
+
+.contact-content {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1.4fr 0.9fr;
+    gap: 25px;
+    align-items: stretch;
+}
+
+/* FORM CARD */
+
+.contact-form,
+.contact-details {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 32px;
+    box-shadow: 0 10px 30px var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-form::before,
+.contact-details::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--forest), var(--sage));
+}
+
+.contact-form h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    color: var(--heading-text);
+    margin-bottom: 22px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--detail-text);
+    margin: 15px 0 7px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--border);
+    border-radius: 11px;
+    background: var(--cream);
+    color: var(--input-text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px var(--light-sage);
+}
+
+.contact-form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: var(--placeholder-text);
+    opacity: 1;
+}
+
+.error {
+    display: block;
+    color: #C34E46;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+[data-theme="dark"] .error {
+    color: #FF9992;
+}
+
+.contact-form button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, var(--forest), var(--green));
+    color: var(--button-text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 18px var(--shadow);
+}
+
+/* CONTACT DETAILS */
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-details h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    color: var(--heading-text);
+    margin-bottom: 22px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.contact-item:last-child {
+    border-bottom: none;
+}
+
+.contact-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: var(--light-sage);
+    color: var(--detail-text);
+    font-size: 19px;
+}
+
+.contact-item strong {
+    display: block;
+    color: var(--detail-text);
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.contact-item p {
+    color: var(--secondary-text);
+    font-size: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.contact-quote {
+    margin-top: auto;
+    padding: 18px;
+    background: var(--light-sage);
+    border-radius: 14px;
+    color: var(--quote-text);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark);
+    color: var(--footer-text);
+    text-align: center;
+    padding: 20px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.footer-divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--dark), var(--sage), var(--dark));
+}
+
+/* THEME BUTTON */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 20;
+    border: 1px solid var(--sage);
+    background: var(--forest);
+    color: #FFFFFF;
+    padding: 11px 17px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--shadow);
+    transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 750px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        max-width: 550px;
+    }
+
+    .contact-heading h2 {
+        font-size: 40px;
+    }
+
+    nav ul {
+        border-radius: 20px;
+    }
+
+    nav ul li a {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        padding: 10px;
+    }
+
+    nav ul {
+        gap: 3px;
+        padding: 8px;
+    }
+
+    nav ul li a {
+        font-size: 9px;
+        padding: 8px 9px;
+    }
+
+    #contact {
+        padding: 35px 15px 55px;
+    }
+
+    .contact-form,
+    .contact-details {
+        padding: 23px;
+    }
+
+    .contact-heading h2 {
+        font-size: 36px;
+    }
+
+    .theme-toggle {
+        bottom: 13px;
+        right: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Welcome to My Personal Website</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">HOME</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT ▾</a>
+            <div class="dropdown-content">
+                <a href="skills.html">Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+        </li>
+
+        <li><a href="gallery.html">GALLERY</a></li>
+        <li><a href="contact.html" class="active">CONTACT</a></li>
+        <li><a href="#" class="logout-button" onclick="confirmLogout()">LOG OUT</a></li>
+    </ul>
+</nav>
+
+<section id="contact">
+
+    <div class="contact-heading">
+        <div class="section-label">Let's Connect</div>
+        <h2>Get in Touch</h2>
+        <div class="decorative">✧ ♡ ✧</div>
+
+        <p>
+            Have a question, suggestion, or just want to say hello?
+            I'd love to hear from you!
+        </p>
+    </div>
+
+    <div class="contact-content">
+
+        <!-- CONTACT FORM -->
+
+        <form id="contactForm" class="contact-form" novalidate>
+
+            <h2>Let's Get in Touch</h2>
+
+            <label for="name">Your Name</label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+            >
+
+            <span class="error" id="nameError"></span>
+
+            <label for="email">Email Address</label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+            >
+
+            <span class="error" id="emailError"></span>
+
+            <label for="message">Your Message</label>
+
+            <textarea
+                id="message"
+                name="message"
+                placeholder="Write your message here..."
+            ></textarea>
+
+            <span class="error" id="messageError"></span>
+
+            <button type="submit">
+                <strong>SEND MESSAGE ♡</strong>
+            </button>
+
+        </form>
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-details">
+
+            <h3>Contact Me ♡</h3>
+
+            <div class="contact-item">
+                <div class="contact-icon">✉</div>
+
+                <div>
+                    <strong>Email Address</strong>
+                    <p>your-email@example.com</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">☎</div>
+
+                <div>
+                    <strong>Phone Number</strong>
+                    <p>Your phone number</p>
+                </div>
+            </div>
+
+            <div class="contact-item">
+                <div class="contact-icon">⌖</div>
+
+                <div>
+                    <strong>Location</strong>
+                    <p>Antique, Philippines</p>
+                </div>
+            </div>
+
+            <div class="contact-quote">
+                "Every connection starts with a simple hello."
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>Made with ♡ | © 2026 My Personal Website. All rights reserved.</p>
+</footer>
+
+<div class="footer-divider"></div>
+
+<button class="theme-toggle" onclick="toggleTheme()">
+    ☾ Dark Mode
+</button>
+
+<script>
+
+const root = document.documentElement;
+
+function applyTheme(theme) {
+
+    root.setAttribute('data-theme', theme);
+
+    localStorage.setItem('siteTheme', theme);
+
+    document.querySelector('.theme-toggle').textContent =
+        theme === 'dark' ? '☀ Light Mode' : '☾ Dark Mode';
+}
+
+function toggleTheme() {
+
+    applyTheme(
+        root.getAttribute('data-theme') === 'dark'
+            ? 'light'
+            : 'dark'
+    );
+}
+
+applyTheme(localStorage.getItem('siteTheme') || 'light');
+
+
+/* CONTACT FORM VALIDATION */
+
+const form = document.getElementById('contactForm');
+
+form.addEventListener('submit', function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    document.querySelectorAll('.error').forEach(error => {
+        error.textContent = '';
+    });
+
+    let valid = true;
+
+    if (!name) {
+        document.getElementById('nameError').textContent =
+            'Name is required.';
+
+        valid = false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email) {
+        document.getElementById('emailError').textContent =
+            'Email is required.';
+
+        valid = false;
+
+    } else if (!emailPattern.test(email)) {
+
+        document.getElementById('emailError').textContent =
+            'Please enter a valid email address.';
+
+        valid = false;
+    }
+
+    if (!message) {
+        document.getElementById('messageError').textContent =
+            'Message is required.';
+
+        valid = false;
+    }
+
+    if (valid) {
+
+        alert('Thank you! Your message has been submitted.');
+
+        form.reset();
+    }
+
+});
+
+
+/* LOG OUT */
+
+function confirmLogout() {
+
+    if (confirm('Are you sure you want to log out?')) {
+
+        localStorage.removeItem('isLoggedIn');
+
+        window.location.href = 'login.html';
+    }
+
+}
+
+</script>
+
+</body>
+</html>

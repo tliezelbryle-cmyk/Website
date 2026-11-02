@@ -1,0 +1,1090 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Home | My Green Personal Website</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* WARM BOTANICAL COLOR PALETTE */
+
+:root {
+    --dark: #29382C;
+    --forest: #3D513E;
+    --green: #63785D;
+    --sage: #87977A;
+    --light-sage: #C5CFB8;
+    --cream: #F5F1E6;
+    --white: #FCFAF4;
+    --text: #394537;
+    --muted: #78816F;
+    --border: #E1DDCE;
+    --shadow: rgba(48,62,43,0.13);
+}
+
+[data-theme="dark"] {
+    --dark: #17251B;
+    --forest: #263B2B;
+    --green: #536B54;
+    --sage: #8C9B7C;
+    --light-sage: #53644F;
+    --cream: #202A21;
+    --white: #303A30;
+    --text: #FFFFFF;
+    --muted: #E0E6D9;
+    --border: #455443;
+    --shadow: rgba(0,0,0,0.25);
+}
+
+/* GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    transition: background 0.4s, color 0.4s;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* HEADER */
+
+header {
+    background: var(--dark);
+    color: #F5F1E6;
+    padding: 15px 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 76px;
+    position: relative;
+    border-bottom: 2px solid var(--sage);
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #F5F1E6;
+}
+
+header h1::after {
+    content: " ♡";
+    font-size: 25px;
+    color: #C5CFB8;
+}
+
+/* NAVIGATION - LIGHT AND DARK MODE FIX */
+
+nav {
+    background: #29382C;
+    padding: 12px 15px 17px;
+    position: relative;
+    z-index: 100;
+    border-bottom: 1px solid #87977A;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    display: block;
+    color: #F5F1E6 !important;
+    background: transparent;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 11px 19px;
+    border-radius: 30px;
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+/* HOVER AND ACTIVE */
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: #F5F1E6 !important;
+    color: #29382C !important;
+    box-shadow: 0 3px 12px rgba(255,255,255,0.12);
+}
+
+/* LOG OUT */
+
+.logout-button {
+    border: 1px solid #C5CFB8;
+    color: #F5F1E6 !important;
+}
+
+.logout-button:hover {
+    background: #F5F1E6 !important;
+    color: #29382C !important;
+}
+
+/* ABOUT DROPDOWN */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 215px;
+    background: #FCFAF4;
+    border: 1px solid #E1DDCE;
+    border-radius: 13px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    overflow: hidden;
+    padding: 7px;
+    z-index: 200;
+}
+
+.dropdown-content a {
+    color: #29382C !important;
+    background: transparent;
+    padding: 12px;
+    border-radius: 8px;
+    white-space: normal;
+}
+
+.dropdown-content a:hover {
+    background: #C5CFB8 !important;
+    color: #17251B !important;
+}
+
+/* SHOW DROPDOWN */
+
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+    display: block;
+}
+
+/* DARK MODE NAVIGATION */
+
+[data-theme="dark"] nav {
+    background: #17251B;
+    border-bottom: 1px solid #8C9B7C;
+}
+
+[data-theme="dark"] nav ul li a {
+    color: #FFFFFF !important;
+}
+
+[data-theme="dark"] nav ul li a:hover,
+[data-theme="dark"] nav ul li a.active {
+    background: #F5F1E6 !important;
+    color: #17251B !important;
+}
+
+[data-theme="dark"] .logout-button {
+    border: 1px solid #8C9B7C;
+}
+
+[data-theme="dark"] .dropdown-content {
+    background: #303A30;
+    border: 1px solid #8C9B7C;
+}
+
+[data-theme="dark"] .dropdown-content a {
+    color: #FFFFFF !important;
+    background: transparent;
+}
+
+[data-theme="dark"] .dropdown-content a:hover {
+    background: #53644F !important;
+    color: #FFFFFF !important;
+}
+
+/* HERO SLIDER */
+
+.slider {
+    width: 100%;
+    max-width: 1120px;
+    height: 390px;
+    margin: 35px auto 25px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 23px;
+    box-shadow: 0 10px 28px var(--shadow);
+    border: 7px solid var(--white);
+}
+
+.slides {
+    display: flex;
+    height: 100%;
+    transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    filter: brightness(0.76);
+}
+
+.text-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    background: linear-gradient(
+        transparent,
+        rgba(24,37,27,0.35)
+    );
+}
+
+.text-overlay h1 {
+    color: #FFF9E9;
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(35px, 6vw, 65px);
+    font-weight: 600;
+    text-shadow: 0 3px 12px rgba(0,0,0,0.4);
+}
+
+/* SLIDER DOTS */
+
+.slider-dots {
+    position: absolute;
+    bottom: 17px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 9px;
+    z-index: 5;
+}
+
+.slider-dots button {
+    width: 9px;
+    height: 9px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.55);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.slider-dots button.active {
+    width: 25px;
+    border-radius: 10px;
+    background: #F5F1E6;
+}
+
+/* SECTION HEADING */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-heading h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 45px;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.decorative-line {
+    width: 65px;
+    height: 2px;
+    background: var(--sage);
+    border-radius: 20px;
+    margin: 12px auto;
+}
+
+/* FUN FACTS SECTION */
+
+#drop {
+    padding: 55px 20px 65px;
+    text-align: center;
+}
+
+.funfact-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1050px;
+    margin: 35px auto 0;
+}
+
+/* FLIP CARD */
+
+.funfact-card {
+    height: 190px;
+    perspective: 1000px;
+}
+
+.funfact-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.7s ease;
+}
+
+.funfact-card:hover .funfact-inner,
+.funfact-card:focus-within .funfact-inner,
+.funfact-card.flipped .funfact-inner {
+    transform: rotateY(180deg);
+}
+
+.funfact-front,
+.funfact-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 18px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 5px 17px var(--shadow);
+}
+
+.funfact-front {
+    background: var(--forest);
+    color: var(--cream);
+    border: 1px solid var(--sage);
+}
+
+.funfact-front p {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.funfact-front p::after {
+    content: " ♡";
+    color: var(--light-sage);
+}
+
+.funfact-back {
+    background: var(--light-sage);
+    color: var(--dark);
+    transform: rotateY(180deg);
+    border: 1px solid var(--sage);
+}
+
+.funfact-back p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+[data-theme="dark"] .funfact-back {
+    color: #FFFFFF;
+}
+
+/* SEE MORE BUTTON */
+
+.see-more-container {
+    margin-top: 35px;
+}
+
+.see-more-button {
+    display: inline-block;
+    background: var(--forest);
+    color: var(--cream);
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid var(--sage);
+    transition: 0.3s ease;
+}
+
+.see-more-button:hover {
+    background: var(--sage);
+    color: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--shadow);
+}
+
+[data-theme="dark"] .see-more-button {
+    color: #FFFFFF;
+}
+
+/* ABOUT ME SECTION */
+
+.container {
+    max-width: 1000px;
+    margin: 20px auto 75px;
+    padding: 28px;
+    display: grid;
+    grid-template-columns: 0.85fr 1.4fr;
+    gap: 35px;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    box-shadow: 0 8px 25px var(--shadow);
+}
+
+.image-section {
+    display: flex;
+    justify-content: center;
+}
+
+.image-section img {
+    width: 100%;
+    max-width: 310px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 17px;
+    border: 6px solid var(--cream);
+    box-shadow: 0 5px 17px var(--shadow);
+    transition: transform 0.4s ease;
+}
+
+.image-section img:hover {
+    transform: scale(1.025);
+}
+
+.quote-section h1 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--forest);
+    font-size: 43px;
+    margin-bottom: 15px;
+}
+
+.quote-section p {
+    color: var(--text);
+    font-size: 13px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+[data-theme="dark"] .quote-section h1 {
+    color: #FFFFFF;
+}
+
+blockquote {
+    background: var(--cream);
+    border-left: 4px solid var(--sage);
+    padding: 17px 20px;
+    border-radius: 0 12px 12px 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--forest);
+}
+
+[data-theme="dark"] blockquote {
+    color: #FFFFFF;
+}
+
+/* BOTANICAL DECORATIONS */
+
+.botanical {
+    position: fixed;
+    font-size: 100px;
+    color: var(--sage);
+    opacity: 0.10;
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+}
+
+.botanical.left {
+    left: -22px;
+    top: 36%;
+    transform: rotate(-35deg);
+}
+
+.botanical.right {
+    right: -20px;
+    top: 67%;
+    transform: rotate(35deg);
+}
+
+/* FOOTER */
+
+footer {
+    background: var(--dark);
+    color: var(--cream);
+    text-align: center;
+    padding: 30px 15px 20px;
+    position: relative;
+    border-top: 3px solid var(--sage);
+}
+
+footer::before {
+    content: "♡";
+    display: block;
+    font-family: 'Dancing Script', cursive;
+    font-size: 35px;
+    margin-bottom: 7px;
+    color: var(--light-sage);
+}
+
+footer p {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+    color: #FFFFFF;
+}
+
+.footer-divider {
+    height: 4px;
+    background: var(--sage);
+}
+
+/* DARK MODE BUTTON */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 18px;
+    right: 20px;
+    z-index: 500;
+    background: var(--forest);
+    color: var(--cream);
+    border: 1px solid var(--sage);
+    border-radius: 30px;
+    padding: 11px 19px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px var(--shadow);
+    transition: 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--sage);
+    color: var(--dark);
+    transform: translateY(-3px);
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#drop,
+.container {
+    animation: fadeIn 0.8s ease both;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 850px) {
+
+    .funfact-container {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+    }
+
+    .slider {
+        width: calc(100% - 35px);
+        height: 320px;
+    }
+
+    .container {
+        width: calc(100% - 35px);
+    }
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 13px 10px;
+        min-height: 65px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav {
+        padding: 10px 5px 13px;
+    }
+
+    nav ul {
+        gap: 4px;
+    }
+
+    nav ul li a {
+        padding: 9px 11px;
+        font-size: 10px;
+    }
+
+    .dropdown-content {
+        min-width: 190px;
+    }
+
+    .slider {
+        height: 240px;
+        margin: 22px auto;
+        border-width: 5px;
+        border-radius: 16px;
+    }
+
+    .text-overlay h1 {
+        font-size: 35px;
+    }
+
+    #drop {
+        padding: 35px 15px 45px;
+    }
+
+    .section-heading h2 {
+        font-size: 36px;
+    }
+
+    .section-heading p {
+        font-size: 12px;
+    }
+
+    .funfact-container {
+        gap: 12px;
+    }
+
+    .funfact-card {
+        height: 155px;
+    }
+
+    .funfact-front,
+    .funfact-back {
+        padding: 12px;
+        border-radius: 14px;
+    }
+
+    .funfact-front p {
+        font-size: 15px;
+    }
+
+    .funfact-back p {
+        font-size: 11px;
+    }
+
+    .container {
+        grid-template-columns: 1fr;
+        gap: 23px;
+        padding: 18px;
+        margin-bottom: 45px;
+    }
+
+    .image-section img {
+        height: 290px;
+        max-width: 280px;
+    }
+
+    .quote-section {
+        text-align: center;
+    }
+
+    .quote-section h1 {
+        font-size: 36px;
+    }
+
+    .quote-section p {
+        font-size: 12px;
+    }
+
+    blockquote {
+        text-align: left;
+        font-size: 12px;
+    }
+
+    .theme-toggle {
+        bottom: 12px;
+        right: 12px;
+        padding: 9px 14px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .funfact-container {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .funfact-card {
+        height: 140px;
+    }
+
+    .slider {
+        height: 210px;
+    }
+
+    nav ul li a {
+        padding: 8px 9px;
+        font-size: 9px;
+    }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BOTANICAL DECORATIONS -->
+
+<div class="botanical left">❧</div>
+<div class="botanical right">❧</div>
+
+<!-- HEADER -->
+
+<header>
+    <h1>Welcome to My Personal Website</h1>
+</header>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <ul>
+
+        <li>
+            <a href="index.html" class="active">HOME</a>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropbtn">ABOUT ▾</a>
+
+            <div class="dropdown-content">
+                <a href="skills.html">Skills I'm Developing</a>
+                <a href="goals.html">My Goals as a Student</a>
+                <a href="funfacts.html">Fun Facts About Me</a>
+            </div>
+        </li>
+
+        <li>
+            <a href="gallery.html">GALLERY</a>
+        </li>
+
+        <li>
+            <a href="contact.html">CONTACT</a>
+        </li>
+
+        <li>
+            <a href="#" class="logout-button" onclick="confirmLogout(event)">LOG OUT ↪</a>
+        </li>
+
+    </ul>
+</nav>
+
+<!-- IMAGE SLIDER -->
+
+<div class="slider">
+
+    <div class="slides">
+
+        <div class="slide">
+            <img src="mmm.png" alt="Welcome image">
+            <div class="text-overlay">
+                <h1>Welcome to My Website ♡</h1>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="ppp.png" alt="Personal inspiration">
+            <div class="text-overlay">
+                <h1>Growing, Learning, and Creating</h1>
+            </div>
+        </div>
+
+        <div class="slide">
+            <img src="yyy.png" alt="My favorite moments">
+            <div class="text-overlay">
+                <h1>A Little Corner of Green and Growth</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="slider-dots">
+        <button class="active" aria-label="Slide 1"></button>
+        <button aria-label="Slide 2"></button>
+        <button aria-label="Slide 3"></button>
+    </div>
+
+</div>
+
+<!-- FUN FACTS -->
+
+<section id="drop">
+
+    <div class="section-heading">
+        <h2>Little Things About Me ♡</h2>
+        <div class="decorative-line"></div>
+
+        <p>
+            A little glimpse into my passions, interests,
+            and the things that make me who I am.
+        </p>
+    </div>
+
+    <div class="funfact-container">
+
+        <div class="funfact-card" tabindex="0">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>I love Programming!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I enjoy learning how to code and create something new.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="funfact-card" tabindex="0">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>Matcha Lover!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>A cup of matcha makes my day more relaxing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="funfact-card" tabindex="0">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>Music Lover!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I enjoy listening to music while studying.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="funfact-card" tabindex="0">
+            <div class="funfact-inner">
+                <div class="funfact-front">
+                    <p>Goal Setter!</p>
+                </div>
+                <div class="funfact-back">
+                    <p>I believe that small steps can lead to big dreams.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="see-more-container">
+        <a href="funfacts.html" class="see-more-button">
+            Explore More About Me ♡
+        </a>
+    </div>
+
+</section>
+
+<!-- ABOUT ME -->
+
+<div class="container">
+
+    <div class="image-section">
+        <img src="lilo.jpg" alt="My profile picture">
+    </div>
+
+    <div class="quote-section">
+
+        <h1>Hi, I'm Liezel! ♡</h1>
+
+        <p>
+            I'm an Information Technology student who enjoys exploring
+            technology, learning web development, and creating meaningful
+            digital experiences. I love discovering new ideas, improving
+            my skills, and expressing my creativity through design.
+        </p>
+
+        <blockquote>
+            "The beautiful thing about learning is that nobody can
+            take it away from you."
+        </blockquote>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+    <p>&copy; 2026 My Personal Website. All rights reserved.</p>
+</footer>
+
+<div class="footer-divider"></div>
+
+<!-- DARK MODE BUTTON -->
+
+<button class="theme-toggle" onclick="toggleTheme()">
+    ☾ Dark Mode
+</button>
+
+<script>
+
+/* THEME */
+
+const root = document.documentElement;
+const themeButton = document.querySelector('.theme-toggle');
+
+function applyTheme(theme) {
+
+    root.setAttribute('data-theme', theme);
+
+    localStorage.setItem('siteTheme', theme);
+
+    themeButton.textContent =
+        theme === 'dark' ? '☀ Light Mode' : '☾ Dark Mode';
+}
+
+function toggleTheme() {
+
+    const currentTheme = root.getAttribute('data-theme');
+
+    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+}
+
+applyTheme(localStorage.getItem('siteTheme') || 'light');
+
+
+/* IMAGE SLIDER */
+
+let slideIndex = 0;
+
+const slides = document.querySelector('.slides');
+const slideItems = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.slider-dots button');
+
+const totalSlides = slideItems.length;
+
+function showSlide(index) {
+
+    slideIndex = (index + totalSlides) % totalSlides;
+
+    slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === slideIndex);
+    });
+}
+
+function nextSlide() {
+    showSlide(slideIndex + 1);
+}
+
+dots.forEach((dot, index) => {
+
+    dot.addEventListener('click', () => {
+        showSlide(index);
+        restartSlider();
+    });
+
+});
+
+let sliderInterval = setInterval(nextSlide, 4000);
+
+function restartSlider() {
+
+    clearInterval(sliderInterval);
+
+    sliderInterval = setInterval(nextSlide, 4000);
+}
+
+
+/* FUN FACTS - KEYBOARD AND CLICK SUPPORT */
+
+document.querySelectorAll('.funfact-card').forEach(card => {
+
+    card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+    });
+
+    card.addEventListener('keydown', event => {
+
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            card.classList.toggle('flipped');
+        }
+
+    });
+
+});
+
+
+/* LOG OUT */
+
+function confirmLogout(event) {
+
+    event.preventDefault();
+
+    const confirmAction = confirm("Are you sure you want to log out?");
+
+    if (confirmAction) {
+
+        localStorage.removeItem('isLoggedIn');
+
+        window.location.href = "login.html";
+    }
+}
+
+</script>
+
+</body>
+</html>
